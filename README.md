@@ -30,10 +30,12 @@
    ## Testes
 
    1. Instale o Cypress:
+      
       npm install cypress --save-dev
       
 
    2. Execute o Cypress:
+      
       npx cypress open
 
    3. Escolha "E2E Testing" na interface do Cypress
