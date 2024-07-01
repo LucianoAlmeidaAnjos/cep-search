@@ -16,16 +16,19 @@
       cd cep-search
       
 
-   3. Instale as dependências:
-      npm install
-      
+   2. Instale as dependências:
 
-   4. Inicie a aplicação:
+       npm install
+
+      
+   3. Inicie a aplicação:
+
       npm start
       
 
-   5. Inicie o json-server:
-      npm run server
+   4. Inicie o json-server:
+
+       npm run server
       
 
    ## Testes
