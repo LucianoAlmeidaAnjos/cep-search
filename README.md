@@ -35,6 +35,10 @@
 
    2. Execute o Cypress:
       npx cypress open
+
+   3. Escolha "E2E Testing" na interface do Cypress
+
+      Na interface do Cypress, selecione 'cepSearch.cy.js' para executar os testes
       
 
    ## Docker
