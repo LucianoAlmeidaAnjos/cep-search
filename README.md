@@ -12,18 +12,19 @@
 
    1. Clone o repositório:
       git clone https://github.com/LucianoAlmeidaAnjos/cep-search
+      
       cd cep-search
       
 
-   2. Instale as dependências:
+   3. Instale as dependências:
       npm install
       
 
-   3. Inicie a aplicação:
+   4. Inicie a aplicação:
       npm start
       
 
-   4. Inicie o json-server:
+   5. Inicie o json-server:
       npm run server
       
 
