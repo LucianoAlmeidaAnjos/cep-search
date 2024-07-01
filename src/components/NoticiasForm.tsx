@@ -22,6 +22,7 @@ const NoticiasForm = ({ selectedNews, refreshNews }) => {
     setTitulo('');
     setDescricao('');
     refreshNews();
+    window.location.reload();
   };
 
   return (
