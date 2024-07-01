@@ -8,12 +8,31 @@ const CepSearch: React.FC = () => {
   const [error, setError] = useState('');
 
   const handleSearch = async () => {
+    if (cep.length !== 8) {
+      setError('Um CEP válido possui 8 caracteres');
+      setAddress(null);
+      return;
+    }
     try {
       const response = await axios.get(`http://viacep.com.br/ws/${cep}/json/`);
-      setAddress(response.data);
-      setError('');
+      if (response.data.erro) {
+        setError('cep não encontrado');
+        setAddress(null);
+      } else {
+        setAddress(response.data);
+        setError('');
+      }
     } catch (err) {
-      setError('Erro ao buscar o CEP.');
+      if (axios.isAxiosError(err)) {
+        if (err.response?.status === 400) {
+          setError('Erro ao buscar o CEP.');
+        } else {
+          setError('Erro ao buscar o CEP.');
+        }
+      } else {
+        setError('Erro ao buscar o CEP.');
+      }
+      setAddress(null);
     }
   };
 
@@ -25,6 +44,12 @@ const CepSearch: React.FC = () => {
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="address-search">
       <h1>Buscar Endereço por CEP</h1>
@@ -33,6 +58,7 @@ const CepSearch: React.FC = () => {
           type="text"
           value={cep}
           onChange={handleChangeCep}
+          onKeyPress={handleKeyPress}
           placeholder="Digite o CEP"
         />
         <button onClick={handleSearch}>Buscar</button>
